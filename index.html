@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+/* teal + coral palette */
 /* VOICE everyday learning for 12-15 year olds: bright and friendly, organised like a good textbook
    IDEA an Indian school notebook: ruled blue lines and a red margin on every experiment page, ink blue and marigold
    PICTURE each page's live experiment drawn large on a ruled page; the home page shows the machine sorting mangoes live
@@ -16,12 +17,12 @@
    TYPE Baloo 2 display + Mukta text (both carry Devanagari)
    LAYOUT tabbed site; each page: crumb, title, experiment beside its controls, then three takeaway cards; stacks on phones */
 :root{color-scheme:light dark;
---bg:light-dark(#ffffff,#0e1a2b);--ink:light-dark(#14213d,#eef2fb);--muted:light-dark(#4a5670,#a9b4c8);
---rule:light-dark(#dce6fb,#1b2b45);--margin:light-dark(#e5383b,#ff6b6b);--blue:light-dark(#2445d6,#8ea6ff);--blue2:light-dark(#1a2f9e,#c3d0ff);
---sun:#ffb000;--panel:light-dark(#f3f6ff,#13233a);--edge:light-dark(#c9d5f2,#2a3d5c);--deep:light-dark(#2445d6,#162a4a);--ondeep:#ffffff;
+--bg:light-dark(#ffffff,#08201e);--ink:light-dark(#0f2a2e,#e8fbf8);--muted:light-dark(#46606a,#9cc3bd);
+--rule:light-dark(#dff3ef,#123532);--margin:light-dark(#fb7185,#fb7185);--blue:light-dark(#0f766e,#5eead4);--blue2:light-dark(#115e59,#99f6e4);
+--sun:#fb7185;--hl:#facc15;--panel:light-dark(#f0fdfa,#0f2f2c);--edge:light-dark(#b8e6df,#1f4a45);--deep:light-dark(#134e4a,#0b2e2b);--ondeep:#ffffff;
 --ripe:light-dark(#f5a300,#ffc23d);--raw:light-dark(#3f9b3f,#6cc46c);--apple:light-dark(#d62839,#ff5d6c);
---gapple:light-dark(#5fae2e,#8bd65a);--orange:light-dark(#ff7a00,#ff9a3c);--good:light-dark(#1f8a4c,#5fd394);--bad:light-dark(#d62839,#ff6b78);
---c1:light-dark(#2445d6,#8ea6ff);--c2:light-dark(#e5383b,#ff6b78);--c3:light-dark(#1f8a4c,#5fd394);--c4:light-dark(#b0007a,#ff7ad1);--c5:light-dark(#7a4b00,#ffc23d)}
+--gapple:light-dark(#5fae2e,#8bd65a);--orange:light-dark(#ff7a00,#ff9a3c);--good:light-dark(#15803d,#5fd394);--bad:light-dark(#e11d48,#fb7185);
+--c1:light-dark(#0d9488,#2dd4bf);--c2:light-dark(#e11d48,#fb7185);--c3:light-dark(#ca8a04,#facc15);--c4:light-dark(#7c3aed,#a78bfa);--c5:light-dark(#2563eb,#60a5fa)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:120px}
@@ -59,11 +60,11 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 9
 /* buttons and chips */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 18px;border-radius:12px;border:2px solid var(--blue);background:var(--blue);color:var(--bg);font:700 16px Mukta,sans-serif;text-decoration:none;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--blue)}
-.btn.sun{background:var(--sun);border-color:var(--sun);color:#14213d}
-.btn.light{background:var(--ondeep);border-color:var(--ondeep);color:#14213d}
+.btn.sun{background:var(--sun);border-color:var(--sun);color:#0f2a2e}
+.btn.light{background:var(--ondeep);border-color:var(--ondeep);color:#0f2a2e}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn[aria-pressed=true]{background:var(--good);border-color:var(--good);color:var(--bg)}
-.btn:focus-visible,.lang button:focus-visible,input:focus-visible,canvas:focus-visible,textarea:focus-visible,.chip:focus-visible,.tabs a:focus-visible,.card:focus-visible,.barrow:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.btn:focus-visible,.lang button:focus-visible,input:focus-visible,canvas:focus-visible,textarea:focus-visible,.chip:focus-visible,.tabs a:focus-visible,.card:focus-visible,.barrow:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .chip{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:6px 14px;border-radius:999px;border:2px solid var(--edge);background:var(--bg);color:var(--ink);font:600 16px Mukta,sans-serif;cursor:pointer;text-decoration:none}
 .chip i{width:14px;height:14px;border-radius:50%;flex:none}
@@ -74,7 +75,7 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 9
 .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px 48px;align-items:end}
 .hero .lead{font-size:19px;color:var(--muted)}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
-.stats div{border-left:4px solid var(--sun);padding:2px 0 2px 12px}
+.stats div{border-left:4px solid var(--hl);padding:2px 0 2px 12px}
 .stats b{display:block;font:800 clamp(28px,3.4vw,38px)/1 "Baloo 2",sans-serif;color:var(--blue)}
 .stats span{font-size:15px;color:var(--muted)}
 .page{position:relative;height:clamp(280px,36vw,420px);border:2px solid var(--edge);border-radius:18px;background:var(--bg);overflow:hidden}
@@ -88,7 +89,7 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 9
 .way .ic svg{width:32px;height:32px}
 .way .go{margin-top:auto;font-weight:700;color:var(--blue)}
 .why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
-.why div{border-top:4px solid var(--sun);padding-top:12px}
+.why div{border-top:4px solid var(--hl);padding-top:12px}
 .why b{font:800 22px/1.2 "Baloo 2",sans-serif;display:block;margin-bottom:6px}
 .creator{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px 28px;align-items:center}
 .badge{width:84px;height:84px;border-radius:22px;background:linear-gradient(135deg,#feda75,#fa7e1e 35%,#d62976 65%,#4f5bd5);display:grid;place-items:center;color:#fff}
@@ -97,7 +98,7 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 9
 .ihead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,22rem);gap:16px 40px;align-items:end}
 .prog{display:grid;gap:8px}
 .prog .track{height:12px;border-radius:999px;background:color-mix(in srgb,var(--ondeep) 25%,transparent);overflow:hidden}
-.prog .fill{height:100%;background:var(--sun);border-radius:999px}
+.prog .fill{height:100%;background:var(--hl);border-radius:999px}
 .level{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:8px 0 16px}
 .level h3{font-size:24px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:18px;margin-bottom:34px}
@@ -110,15 +111,15 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 9
 .card .sub{color:var(--muted);font-size:15px}
 .card .meta{margin-top:auto;display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--muted);padding-top:6px}
 .card .done{font-weight:700;color:var(--good)}
-.card .big{font-size:15px;border-left:3px solid var(--sun);padding-left:10px}
+.card .big{font-size:15px;border-left:3px solid var(--c1);padding-left:10px}
 /* lesson pages */
 .crumb{display:flex;gap:8px;font-size:15px;color:var(--muted);margin-bottom:10px;flex-wrap:wrap}
 .crumb a{font-weight:600}
 .lhead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:start;margin-bottom:14px}
 .lhead .sub{color:var(--muted);font-size:18px;margin:6px 0 0}
 .intro{font-size:18px;margin-bottom:20px}
-.bigidea{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;align-items:center;background:var(--sun);color:#14213d;border-radius:18px;padding:16px 20px;margin-bottom:16px}
-.bigidea span{font:800 15px Mukta,sans-serif;background:#14213d;color:var(--sun);border-radius:999px;padding:4px 12px;white-space:nowrap}
+.bigidea{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;align-items:center;background:var(--sun);color:#0f2a2e;border-radius:18px;padding:16px 20px;margin-bottom:16px}
+.bigidea span{font:800 15px Mukta,sans-serif;background:#0f2a2e;color:#fff;border-radius:999px;padding:4px 12px;white-space:nowrap}
 .bigidea p{margin:0;font:700 clamp(19px,2.2vw,23px)/1.35 "Baloo 2",Mukta,sans-serif;max-width:none}
 .analogy{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;margin-bottom:20px}
 .analogy .ic{width:44px;height:44px;border-radius:12px;background:var(--panel);display:grid;place-items:center;color:var(--blue)}
@@ -143,7 +144,7 @@ input[type=range]{width:100%;height:30px;accent-color:var(--blue);cursor:pointer
 .trio b{font:800 22px/1.1 "Baloo 2",sans-serif;font-variant-numeric:tabular-nums}
 .learn{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
 .learn>div{padding:18px;border-radius:16px;border:2px solid var(--edge);background:var(--bg)}
-.learn>div:first-child{background:var(--sun);border-color:var(--sun);color:#14213d}
+.learn>div:first-child{background:var(--sun);border-color:var(--sun);color:#0f2a2e}
 .learn h3{margin-bottom:8px}
 .learn .fx{font:700 18px/1.5 "Baloo 2",Mukta,sans-serif;background:rgba(20,33,61,.08);border-radius:10px;padding:8px 12px;margin:6px 0 10px}
 .pager{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:26px;padding-top:18px;border-top:2px dashed var(--edge)}
@@ -200,7 +201,7 @@ details ul{font-size:15px;color:var(--muted);padding-left:20px}
 .res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .res h3{margin-bottom:10px;color:var(--blue)}
 .res ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-.res li{padding-left:14px;border-left:3px solid var(--sun)}
+.res li{padding-left:14px;border-left:3px solid var(--c1)}
 .res li span{display:block;font-size:15px;color:var(--muted)}
 .plan{display:grid;gap:0;border:2px solid var(--edge);border-radius:16px;overflow:hidden}
 .plan div{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:14px;padding:12px 16px;border-bottom:1px solid var(--edge)}
@@ -226,7 +227,7 @@ footer a{color:var(--ondeep)}
 <body>
 <header><div class="bar">
   <a class="logo" href="#home" aria-label="Machine Ki Pathshala home">
-    <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="4" width="30" height="32" rx="5" fill="#2445d6"/><rect x="10" y="4" width="2" height="32" fill="#e5383b"/><circle cx="19" cy="15" r="3.2" fill="#ffb000"/><circle cx="29" cy="12" r="3.2" fill="#ffb000"/><circle cx="25" cy="27" r="3.2" fill="#fff"/><path d="M19 15L29 12M19 15L25 27M29 12L25 27" stroke="#fff" stroke-width="1.6"/></svg>
+    <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="4" width="30" height="32" rx="5" fill="#0f766e"/><rect x="10" y="4" width="2" height="32" fill="#fb7185"/><circle cx="19" cy="15" r="3.2" fill="#facc15"/><circle cx="29" cy="12" r="3.2" fill="#facc15"/><circle cx="25" cy="27" r="3.2" fill="#fff"/><path d="M19 15L29 12M19 15L25 27M29 12L25 27" stroke="#fff" stroke-width="1.6"/></svg>
     <span data-i="name">Machine Ki Pathshala</span></a>
   <nav class="tabs" aria-label="Sections">
     <a href="#lessons" data-tab="lessons" data-i="navLessons">Lessons</a>
@@ -272,7 +273,7 @@ footer a{color:var(--ondeep)}
   </div></div>
   <div class="band"><div class="wrap creator">
     <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div>
-    <div><h3 style="font-size:26px;margin-bottom:6px" data-i="crT">Made by Bhavuk</h3><p class="muted" style="margin:0" data-i="crP"></p></div>
+    <div><h3 style="font-size:26px;margin:0" data-i="crT">Made by Bhavuk</h3></div>
     <a class="btn" href="https://www.instagram.com/bhavuk.decodes/" target="_blank" rel="noopener" data-i="crBtn">Follow @bhavuk.decodes</a>
   </div></div>
 </section>
@@ -819,8 +820,8 @@ function drawMango(cv,pts,mys){
   g.setLineDash([5,5]);g.strokeStyle=ink;g.lineWidth=1.5;for(const b of r.best){g.beginPath();g.moveTo(X(mys.x),Y(mys.y));g.lineTo(X(b.p.x),Y(b.p.y));g.stroke()}g.setLineDash([]);
   const mango=(x,y,f,sz)=>{g.save();g.translate(x,y);g.rotate(-.5);g.fillStyle='rgba(0,0,0,.15)';g.beginPath();g.ellipse(2,3,sz*1.15,sz*.85,0,0,7);g.fill();g.fillStyle=f;g.strokeStyle=ink;g.lineWidth=1.5;g.beginPath();g.ellipse(0,0,sz*1.15,sz*.85,0,0,7);g.fill();g.stroke();g.fillStyle='rgba(255,255,255,.45)';g.beginPath();g.ellipse(-sz*.4,-sz*.3,sz*.35,sz*.2,0,0,7);g.fill();g.restore()};
   for(const p of pts)mango(X(p.x),Y(p.y),p.c?ripe:raw,9);
-  mango(X(mys.x),Y(mys.y),'#ffffff',14);g.fillStyle='#14213d';g.font='800 16px "Baloo 2",sans-serif';g.textAlign='center';g.fillText('?',X(mys.x),Y(mys.y)+6);
-  if(r.vote!==null){let ly=Y(mys.y)-34;if(ly<4)ly=Y(mys.y)+18;pill(g,r.vote?t('ripe'):t('raw'),X(mys.x)+20,ly,r.vote?ripe:raw,'#14213d',W)}
+  mango(X(mys.x),Y(mys.y),'#ffffff',14);g.fillStyle='#0f2a2e';g.font='800 16px "Baloo 2",sans-serif';g.textAlign='center';g.fillText('?',X(mys.x),Y(mys.y)+6);
+  if(r.vote!==null){let ly=Y(mys.y)-34;if(ly<4)ly=Y(mys.y)+18;pill(g,r.vote?t('ripe'):t('raw'),X(mys.x)+20,ly,r.vote?ripe:raw,'#0f2a2e',W)}
   return {r,X,Y,pw,ph};
 }
 const SEED=[[.82,.72,1],[.7,.82,1],[.9,.55,1],[.62,.66,1],[.78,.9,1],[.15,.2,0],[.3,.32,0],[.2,.45,0],[.42,.14,0],[.08,.6,0]];
@@ -854,7 +855,7 @@ function l2(){const cv=$('m2'),{g,W,H}=fit(cv);const P={l:50,r:16,t:16,b:40},pw=
   g.save();g.beginPath();g.rect(P.l,P.t,pw,ph);g.clip();
   g.strokeStyle=bad;g.lineWidth=3;for(const p of D2){g.beginPath();g.moveTo(X(p.x),Y(p.y));g.lineTo(X(p.x),Y(L2.m*p.x+L2.c));g.stroke()}
   g.strokeStyle=blue;g.lineWidth=4;g.beginPath();g.moveTo(X(10),Y(L2.m*10+L2.c));g.lineTo(X(42),Y(L2.m*42+L2.c));g.stroke();g.restore();
-  for(const p of D2){const x=X(p.x),y=Y(p.y);g.fillStyle='#ffb000';g.strokeStyle=ink;g.lineWidth=1.5;g.beginPath();g.moveTo(x-8,y-7);g.lineTo(x+8,y-7);g.lineTo(x+6,y+7);g.lineTo(x-6,y+7);g.closePath();g.fill();g.stroke();g.beginPath();g.arc(x+9,y,4,-1.4,1.4);g.stroke()}
+  for(const p of D2){const x=X(p.x),y=Y(p.y);g.fillStyle='#facc15';g.strokeStyle=ink;g.lineWidth=1.5;g.beginPath();g.moveTo(x-8,y-7);g.lineTo(x+8,y-7);g.lineTo(x+6,y+7);g.lineTo(x-6,y+7);g.closePath();g.fill();g.stroke();g.beginPath();g.arc(x+9,y,4,-1.4,1.4);g.stroke()}
   pill(g,t('pred',{t:35,c:Math.round(L2.m*35+L2.c)}),X(35)-80,P.t+4,blue,bg,W);
   $('m2err').textContent=Math.round(err2(L2.m,L2.c))+' '+t('cups');$('m2mo').textContent=L2.m.toFixed(1);$('m2co').textContent=Math.round(L2.c);$('m2m').value=L2.m;$('m2c').value=L2.c}
 const stop2=()=>{clearInterval(L2.timer);L2.timer=null};
@@ -942,12 +943,12 @@ function l4(){for(let i=0;i<5;i++){const v=i<4?L4.w[i]:L4.b;$('m4w'+i).value=v;$
   const score=sc(L4.x),fire=score>0;const lw=Math.min(150,W*.3),nx=W*.6,ny=H/2,R=Math.min(48,H*.15);let o='';
   [0,1,2,3,4].forEach(i=>{const lab=i<4?t('in'+i):t('bias'),y=H*(i+1)/6,on=i<4?L4.x[i]:1,w=i<4?L4.w[i]:L4.b,c=w>=0?blue:bad,x0=lw+18;
     o+='<line x1="'+x0+'" y1="'+y+'" x2="'+(nx-R)+'" y2="'+ny+'" stroke="'+(on&&w!==0?c:edge)+'" stroke-width="'+(on?2+Math.abs(w)*2:2)+'" stroke-linecap="round" '+(on?'':'stroke-dasharray="4 6"')+'/>';
-    o+='<circle cx="'+x0+'" cy="'+y+'" r="9" fill="'+(on?'#ffb000':panel)+'" stroke="'+ink+'" stroke-width="1.5"/>';
+    o+='<circle cx="'+x0+'" cy="'+y+'" r="9" fill="'+(on?'#facc15':panel)+'" stroke="'+ink+'" stroke-width="1.5"/>';
     o+='<text x="'+(x0-16)+'" y="'+(y+5)+'" text-anchor="end" font-size="14" font-weight="600" fill="'+(on?ink:mut)+'">'+esc(lab)+'</text>';
     const mx=x0+(nx-R-x0)*.45,my=y+(ny-y)*.45;o+='<text x="'+mx+'" y="'+(my-6)+'" text-anchor="middle" font-size="14" font-weight="700" fill="'+(on?c:mut)+'" style="paint-order:stroke;stroke:'+bg+';stroke-width:4px">'+(w>0?'+':'')+w+'</text>'});
-  o+='<circle cx="'+nx+'" cy="'+ny+'" r="'+R+'" fill="'+(fire?'#ffb000':panel)+'" stroke="'+ink+'" stroke-width="3"/>';
-  o+='<text x="'+nx+'" y="'+(ny-4)+'" text-anchor="middle" font-size="13" fill="'+(fire?'#14213d':ink)+'">'+esc(t('total'))+'</text>';
-  o+='<text x="'+nx+'" y="'+(ny+16)+'" text-anchor="middle" font-size="20" font-weight="800" fill="'+(fire?'#14213d':ink)+'">'+(score>0?'+':'')+score+'</text>';
+  o+='<circle cx="'+nx+'" cy="'+ny+'" r="'+R+'" fill="'+(fire?'#facc15':panel)+'" stroke="'+ink+'" stroke-width="3"/>';
+  o+='<text x="'+nx+'" y="'+(ny-4)+'" text-anchor="middle" font-size="13" fill="'+(fire?'#0f2a2e':ink)+'">'+esc(t('total'))+'</text>';
+  o+='<text x="'+nx+'" y="'+(ny+16)+'" text-anchor="middle" font-size="20" font-weight="800" fill="'+(fire?'#0f2a2e':ink)+'">'+(score>0?'+':'')+score+'</text>';
   const ox=nx+R+12,ex=W-12;o+='<line x1="'+ox+'" y1="'+ny+'" x2="'+(ex-4)+'" y2="'+ny+'" stroke="'+ink+'" stroke-width="3"/><path d="M'+(ex-12)+' '+(ny-7)+'L'+ex+' '+ny+'L'+(ex-12)+' '+(ny+7)+'" fill="none" stroke="'+ink+'" stroke-width="3"/>';
   o+='<text x="'+((ox+ex)/2)+'" y="'+(ny-14)+'" text-anchor="middle" font-size="'+(W<520?14:18)+'" font-weight="800" fill="'+(fire?col('--good'):bad)+'">'+esc(fire?t('plays'):t('stays'))+'</text>';
   s.innerHTML=o;
@@ -989,9 +990,9 @@ function gdStatus(){const gr=Math.abs(gdv(GD.w));const tr=GD.trail;
   if(gr<.03)return gf(GD.w)>gMin+.12?['gdSstuck','gdSstuck2']:['gdSbottom',''];
   if(GD.lr<.06)return['gdSslow','gdSslow2'];return['gdSdown','gdSdown2']}
 function gd(){const {g,W,H}=fit($('gdc'));const P={l:34,r:14,t:20,b:34},pw=W-P.l-P.r,ph=H-P.t-P.b;const X=w=>P.l+(w-GDX[0])/(GDX[1]-GDX[0])*pw,Y=v=>P.t+(1-(v-gMin+.3)/(gMax-gMin+.6))*ph;
-  const ink=col('--ink'),blue=col('--blue'),sun='#ffb000',bg=col('--bg');g.fillStyle=bg;g.fillRect(0,0,W,H);ruled(g,W,H,P.t);
+  const ink=col('--ink'),blue=col('--blue'),sun='#facc15',bg=col('--bg');g.fillStyle=bg;g.fillRect(0,0,W,H);ruled(g,W,H,P.t);
   g.beginPath();g.moveTo(X(GDX[0]),H-P.b);for(let w=GDX[0];w<=GDX[1]+.001;w+=.05)g.lineTo(X(w),Y(gf(w)));g.lineTo(X(GDX[1]),H-P.b);g.closePath();
-  const gr=g.createLinearGradient(0,P.t,0,H);gr.addColorStop(0,'rgba(63,155,63,.45)');gr.addColorStop(1,'rgba(63,155,63,.08)');g.fillStyle=gr;g.fill();
+  const gr=g.createLinearGradient(0,P.t,0,H);gr.addColorStop(0,'rgba(13,148,136,.4)');gr.addColorStop(1,'rgba(13,148,136,.06)');g.fillStyle=gr;g.fill();
   g.beginPath();for(let w=GDX[0];w<=GDX[1]+.001;w+=.05){const x=X(w),y=Y(gf(w));w===GDX[0]?g.moveTo(x,y):g.lineTo(x,y)}g.strokeStyle=ink;g.lineWidth=3;g.stroke();
   axisLabels(g,W,H,P,t('axWeight'),t('axMistake'));
   const tr=GD.trail;g.strokeStyle=sun;g.lineWidth=2;for(let i=1;i<tr.length;i++){g.globalAlpha=.3+.7*i/tr.length;g.beginPath();g.moveTo(X(tr[i-1]),Y(gf(tr[i-1]))-10);g.quadraticCurveTo((X(tr[i-1])+X(tr[i]))/2,Math.min(Y(gf(tr[i-1])),Y(gf(tr[i])))-30,X(tr[i]),Y(gf(tr[i]))-10);g.stroke()}g.globalAlpha=1;
@@ -1025,8 +1026,8 @@ function bp(){const s=$('bps'),W=s.clientWidth,H=s.clientHeight;if(!W)return;con
     o+='<text x="'+mx+'" y="'+my+'" text-anchor="middle" font-size="'+(small?13:15)+'" font-weight="700" fill="'+ink+'" style="'+st+'">'+k+' = '+f2(BP[k])+'</text>';
     if(back)o+='<text x="'+mx+'" y="'+(my+18)+'" text-anchor="middle" font-size="'+(small?13:14)+'" font-weight="700" fill="'+bad+'" style="'+st+'">'+esc(t('bpFix'))+' '+(BP.g[k]>0?'↓':'↑')+' '+f2(Math.abs(BP.g[k]*.01))+'</text>'};
   edge('x','h1','w1');edge('x','h2','w2');edge('h1','y','v1');edge('h2','y','v2');
-  const node=(k,label,val,blame)=>{const [x,y]=N[k];o+='<circle cx="'+x+'" cy="'+y+'" r="'+R+'" fill="'+(val!==null?'#ffb000':panel)+'" stroke="'+ink+'" stroke-width="2.5"/>';
-    o+='<text x="'+x+'" y="'+(y+6)+'" text-anchor="middle" font-size="'+(small?14:17)+'" font-weight="800" fill="#14213d">'+(val!==null?f2(val):'?')+'</text>';
+  const node=(k,label,val,blame)=>{const [x,y]=N[k];o+='<circle cx="'+x+'" cy="'+y+'" r="'+R+'" fill="'+(val!==null?'#facc15':panel)+'" stroke="'+ink+'" stroke-width="2.5"/>';
+    o+='<text x="'+x+'" y="'+(y+6)+'" text-anchor="middle" font-size="'+(small?14:17)+'" font-weight="800" fill="#0f2a2e">'+(val!==null?f2(val):'?')+'</text>';
     o+='<text x="'+x+'" y="'+(y-R-8)+'" text-anchor="middle" font-size="14" font-weight="600" fill="'+mut+'">'+esc(label)+'</text>';
     if(blame!==null)o+='<text x="'+x+'" y="'+(y+R+20)+'" text-anchor="middle" font-size="14" font-weight="700" fill="'+bad+'">'+esc(t('bpBlame'))+' '+f2(blame)+'</text>'};
   const F=BP.ph>=1&&BP.f,G=BP.ph===2&&BP.g;
@@ -1057,10 +1058,10 @@ function of(){const c=polyfit(OF.tr,OF.d),eTr=rmse(c,OF.tr),eTe=rmse(c,OF.te);
   const ink=col('--ink'),blue=col('--blue'),bg=col('--bg');g.fillStyle=bg;g.fillRect(0,0,W,H);ruled(g,W,H,P.t);
   g.save();g.beginPath();g.rect(0,P.t,W,ph);g.clip();g.beginPath();for(let x=-1.05;x<=1.05;x+=.005){const y=Y(pv(c,x));x===-1.05?g.moveTo(X(x),y):g.lineTo(X(x),y)}g.strokeStyle=blue;g.lineWidth=4;g.stroke();g.restore();
   OF.tr.forEach(p=>{g.fillStyle=ink;g.beginPath();g.arc(X(p.x),Y(p.y),7,0,7);g.fill()});
-  OF.te.forEach(p=>{g.fillStyle=bg;g.strokeStyle='#e08e00';g.lineWidth=3;g.beginPath();g.arc(X(p.x),Y(p.y),7,0,7);g.fill();g.stroke()});
+  OF.te.forEach(p=>{g.fillStyle=bg;g.strokeStyle='#e11d48';g.lineWidth=3;g.beginPath();g.arc(X(p.x),Y(p.y),7,0,7);g.fill();g.stroke()});
   const k=OF.d<=2?['ofU','ofU2','no']:OF.d<=6?['ofJ','ofJ2','ok']:['ofO','ofO2','no'];$('ofsay').innerHTML='<span class="'+k[2]+'">'+esc(t(k[0]))+'</span><small>'+esc(t(k[1]))+'</small>';
   $('ofdo').textContent=OF.d;$('ofd').value=OF.d;const mx=Math.max(.6,eTr,eTe);
-  $('ofbars').innerHTML=[['ofTrain',eTr,'var(--ink)'],['ofTest',eTe,'#e08e00']].map(([k,v,cl])=>'<div class="lbl">'+esc(t(k))+'</div><div class="barrow" style="grid-template-columns:minmax(0,1fr) 3.4em"><span class="track"><span class="fill" style="width:'+Math.min(100,v/mx*100)+'%;background:'+cl+'"></span></span><span class="pc">'+v.toFixed(2)+'</span></div>').join('')}
+  $('ofbars').innerHTML=[['ofTrain',eTr,'var(--ink)'],['ofTest',eTe,'#e11d48']].map(([k,v,cl])=>'<div class="lbl">'+esc(t(k))+'</div><div class="barrow" style="grid-template-columns:minmax(0,1fr) 3.4em"><span class="track"><span class="fill" style="width:'+Math.min(100,v/mx*100)+'%;background:'+cl+'"></span></span><span class="pc">'+v.toFixed(2)+'</span></div>').join('')}
 $('ofd').addEventListener('input',e=>{OF.d=+e.target.value;of()});
 
 /* ================= CONCEPT: LAYERS AND BENDS ================= */
@@ -1072,7 +1073,7 @@ function lybuild(){$('lysl').innerHTML=[0,1,2].map(i=>'<div class="lbl" style="c
   [0,1,2].forEach(i=>{$('lyp'+i).addEventListener('input',e=>{LY.n[i][0]=+e.target.value;ly()});$('lys'+i).addEventListener('input',e=>{LY.n[i][1]=+e.target.value;ly()})});$('lyb').addEventListener('input',e=>{LY.b=+e.target.value;ly()})}
 function ly(){const {g,W,H}=fit($('lyc'));const P={l:20,r:20,t:16,b:16},pw=W-P.l-P.r,ph=H-P.t-P.b,X=x=>P.l+(x+1)/2*pw,Y=y=>P.t+(1-(y+.7)/2.2)*ph;const bg=col('--bg');
   g.fillStyle=bg;g.fillRect(0,0,W,H);ruled(g,W,H,P.t);g.strokeStyle=col('--edge');g.lineWidth=1.5;g.beginPath();g.moveTo(P.l,Y(0));g.lineTo(W-P.r,Y(0));g.stroke();
-  g.beginPath();g.moveTo(X(-1),Y(0));for(let x=-1;x<=1.0001;x+=.01)g.lineTo(X(x),Y(tgt(x)));g.lineTo(X(1),Y(0));g.closePath();g.fillStyle='rgba(255,176,0,.45)';g.fill();
+  g.beginPath();g.moveTo(X(-1),Y(0));for(let x=-1;x<=1.0001;x+=.01)g.lineTo(X(x),Y(tgt(x)));g.lineTo(X(1),Y(0));g.closePath();g.fillStyle='rgba(251,113,133,.35)';g.fill();
   g.save();g.beginPath();g.rect(0,P.t,W,ph);g.clip();
   [0,1,2].forEach(i=>{g.strokeStyle=col(KC[i]);g.lineWidth=2;g.setLineDash([6,5]);g.beginPath();for(let x=-1;x<=1.0001;x+=.01){const y=Y(lyOut(x,i));x<=-1?g.moveTo(X(x),y):g.lineTo(X(x),y)}g.stroke();g.setLineDash([]);
     if(LY.bend){const p=LY.n[i][0];g.fillStyle=col(KC[i]);g.beginPath();g.arc(X(p),Y(lyOut(p,i)),5,0,7);g.fill()}});
@@ -1103,7 +1104,7 @@ function em(){const {g,W,H}=fit($('emc'));const P=18,X=x=>P+x*(W-2*P),Y=y=>P+(1-
     const mx=EW[a][2]-EW[b][2],my=EW[a][3]-EW[b][3];arrow(X(EW[b][2]),Y(EW[b][3]),X(EW[a][2]),Y(EW[a][3]),col('--muted'));arrow(X(EW[c][2]),Y(EW[c][3]),X(EW[c][2]+mx),Y(EW[c][3]+my),col('--blue'))}}
   EW.forEach((w,i)=>{const on=hi.includes(i),x=X(w[2]),y=Y(w[3]);g.fillStyle=cs[w[4]];g.strokeStyle=ink;g.lineWidth=on?2.5:1;g.beginPath();g.arc(x,y,on?8:5.5,0,7);g.fill();g.stroke();
     g.font=(on?'800 15px':'600 14px')+' Mukta,sans-serif';g.textAlign=x>W-90?'right':'left';g.fillStyle=ink;g.globalAlpha=on||EM.mode==='ex'&&hi.length===0?1:(on?1:.7);g.save();g.lineWidth=4;g.strokeStyle=bg;const lx=x>W-90?x-11:x+11;g.strokeText(ewn(i),lx,y+5);g.fillText(ewn(i),lx,y+5);g.restore();g.globalAlpha=1});
-  if(res!==null){const x=X(EW[res][2]),y=Y(EW[res][3]);g.strokeStyle='#ffb000';g.lineWidth=4;g.beginPath();g.arc(x,y,16,0,7);g.stroke()}
+  if(res!==null){const x=X(EW[res][2]),y=Y(EW[res][3]);g.strokeStyle='#facc15';g.lineWidth=4;g.beginPath();g.arc(x,y,16,0,7);g.stroke()}
   $('emmode').innerHTML=[['ex','emExplore'],['math','emMath']].map(([m,k])=>'<button class="chip" data-m="'+m+'" aria-pressed="'+(EM.mode===m)+'">'+esc(t(k))+'</button>').join('');
   if(EM.mode==='ex'){const s=EW[EM.sel];$('emout').innerHTML='<div class="lbl">'+esc(t('emNear',{w:ewn(EM.sel)}))+'</div><div class="bars" style="margin-top:8px">'+near(s[2],s[3],[EM.sel]).slice(0,3).map(o=>{const p=Math.round(clamp(100*(1-o.d/.9),0,100));return '<div class="barrow"><span>'+esc(ewn(o.i))+'</span><span class="track"><span class="fill" style="width:'+p+'%"></span></span><span class="pc">'+p+'%</span></div>'}).join('')+'</div><p class="how" style="margin-top:10px">'+esc(t('emPick'))+'</p>'}
   else{$('emout').innerHTML='<div class="row">'+EQ.map((q,i)=>'<button class="chip sm" data-eq="'+i+'" aria-pressed="'+(EM.eq===i)+'">'+esc(t(i?'emEq2':'emEq1'))+'</button>').join('')+'</div><div class="say" style="margin:12px 0">'+esc(t(EM.eq?'emEq2':'emEq1'))+' = '+(res!==null?'<span style="color:var(--blue)">'+esc(ewn(res))+'</span>':'?')+'</div><button class="btn sun" id="emcalc">'+esc(t('emCalc'))+'</button>'}}
@@ -1117,7 +1118,7 @@ hi:[{w:["कुत्ते","ने","सड़क","पार","नहीं",
 const AT={s:0,e:0};
 function at(){const S=ATS[lang][AT.s],w=S.w.slice();if(AT.e===1){w[S.adj]=S.alt;if(S.alt2)w[S.adj+1]=S.alt2}
   const main=AT.e===0?S.a:S.b,other=AT.e===0?S.b:S.a;const wt=w.map(()=>0);wt[main]=.52;wt[S.adj]=.14;wt[other]=.09;wt[S.p]=.06;const rest=w.map((_,i)=>i).filter(i=>![main,S.adj,other,S.p].includes(i));rest.forEach(i=>wt[i]=.19/rest.length);
-  $('attok').innerHTML=w.map((x,i)=>'<span class="'+(i===S.p?'me':'')+'" style="background:color-mix(in srgb,#ffb000 '+Math.round(i===S.p?0:Math.min(100,wt[i]*170))+'%,transparent)">'+esc(x)+'</span>').join('');
+  $('attok').innerHTML=w.map((x,i)=>'<span class="'+(i===S.p?'me':'')+'" style="background:color-mix(in srgb,#facc15 '+Math.round(i===S.p?0:Math.min(100,wt[i]*170))+'%,transparent)">'+esc(x)+'</span>').join('');
   $('atlooks').textContent=t('atLooks',{w:w[S.p]});
   $('atbars').innerHTML=w.map((x,i)=>({x,v:wt[i],i})).filter(o=>o.i!==S.p).sort((a,b)=>b.v-a.v).slice(0,4).map(o=>'<div class="barrow"><span>'+esc(o.x)+'</span><span class="track"><span class="fill" style="width:'+Math.round(o.v*100/.52)+'%"></span></span><span class="pc">'+Math.round(o.v*100)+'%</span></div>').join('');
   $('atsay').innerHTML=esc(w[S.p])+' → <span style="color:var(--blue)">'+esc(w[main])+'</span>';
