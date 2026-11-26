@@ -16,14 +16,14 @@
    COLOUR white paper, ink blue #2445d6, marigold #ffb000, margin red; deep ink-blue night
    TYPE Baloo 2 display + Mukta text (both carry Devanagari)
    LAYOUT tabbed site; each page: crumb, title, experiment beside its controls, then three takeaway cards; stacks on phones */
-:root{color-scheme:light dark;
+:root{color-scheme:light;
 --bg:light-dark(#ffffff,#08201e);--ink:light-dark(#0f2a2e,#e8fbf8);--muted:light-dark(#46606a,#9cc3bd);
 --rule:light-dark(#d3f4ee,#123532);--margin:light-dark(#ff6b81,#ff6b81);--blue:light-dark(#0d9488,#5eead4);--blue2:light-dark(#115e59,#99f6e4);
 --sun:#ff6b81;--hl:#ffd60a;--panel:light-dark(#e8fdf9,#0f2f2c);--edge:light-dark(#9fe5da,#1f4a45);--deep:light-dark(#0d9488,#0b2e2b);--deep2:light-dark(#0891b2,#0b3a3f);--tint:light-dark(#e3fbf6,#08201e);--ondeep:#ffffff;
 --ripe:light-dark(#f5a300,#ffc23d);--raw:light-dark(#3f9b3f,#6cc46c);--apple:light-dark(#d62839,#ff5d6c);
 --gapple:light-dark(#5fae2e,#8bd65a);--orange:light-dark(#ff7a00,#ff9a3c);--good:light-dark(#15803d,#5fd394);--bad:light-dark(#e11d48,#fb7185);
 --c1:light-dark(#14b8a6,#2dd4bf);--c2:light-dark(#f43f5e,#fb7185);--c3:light-dark(#eab308,#facc15);--c4:light-dark(#8b5cf6,#a78bfa);--c5:light-dark(#3b82f6,#60a5fa)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+:root,:root[data-theme=light],:root[data-theme=dark]{color-scheme:light}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:120px}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Mukta,"Noto Sans Devanagari",system-ui,sans-serif;overflow-x:clip}
